@@ -28,53 +28,68 @@ export default function Login() {
     }
   };
 
+  const inputClass = "w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-2xl text-slate-800 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-all";
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 via-teal-50/40 to-slate-50 px-4">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 via-teal-50 to-slate-50 px-4 py-12">
       <div className="w-full max-w-md">
-        <div className="text-center mb-6">
-          <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-teal-500 to-emerald-600 flex items-center justify-center text-2xl mx-auto mb-3 shadow-lg shadow-teal-500/20">
+        {/* Logo & Header */}
+        <div className="text-center mb-8">
+          <div className="w-16 h-16 rounded-3xl bg-gradient-to-br from-teal-500 via-emerald-500 to-cyan-500 flex items-center justify-center text-4xl mx-auto mb-4 shadow-xl shadow-teal-500/30">
             💊
           </div>
-          <h1 className="text-2xl font-semibold text-slate-800">Welcome back</h1>
-          <p className="text-sm text-slate-500 mt-1">Login to manage your medicines</p>
+          <h1 className="text-3xl font-bold text-slate-800">Welcome Back</h1>
+          <p className="text-slate-500 mt-2">Sign in to track your medicines</p>
         </div>
 
-        <div className="bg-white rounded-2xl shadow-xl shadow-slate-200/50 border border-slate-100 p-8">
+        {/* Form Card */}
+        <div className="bg-white rounded-3xl shadow-xl shadow-slate-200/60 border border-slate-100 p-8">
           {error && (
-            <div className="bg-red-50 text-red-600 text-sm rounded-xl px-4 py-2.5 mb-5 border border-red-100">
+            <div className="bg-red-50 border border-red-200 text-red-600 rounded-2xl px-5 py-3 mb-6 text-sm">
               {error}
             </div>
           )}
 
-          <form onSubmit={handleSubmit} className="space-y-4">
+          <form onSubmit={handleSubmit} className="space-y-6">
             <div>
-              <label className="block text-sm font-medium text-slate-700 mb-1.5">Email</label>
+              <label className="block text-sm font-semibold text-slate-700 mb-1.5">Email Address</label>
               <input
-                type="email" name="email" value={form.email} onChange={handleChange} required
+                type="email"
+                name="email"
+                value={form.email}
+                onChange={handleChange}
+                required
                 placeholder="you@example.com"
-                className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-slate-800 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent transition"
+                className={inputClass}
               />
             </div>
+
             <div>
-              <label className="block text-sm font-medium text-slate-700 mb-1.5">Password</label>
+              <label className="block text-sm font-semibold text-slate-700 mb-1.5">Password</label>
               <input
-                type="password" name="password" value={form.password} onChange={handleChange} required
+                type="password"
+                name="password"
+                value={form.password}
+                onChange={handleChange}
+                required
                 placeholder="••••••••"
-                className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-slate-800 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent transition"
+                className={inputClass}
               />
             </div>
+
             <button
-              type="submit" disabled={loading}
-              className="w-full bg-gradient-to-r from-teal-600 to-emerald-600 hover:from-teal-700 hover:to-emerald-700 text-white font-medium py-2.5 rounded-xl transition shadow-lg shadow-teal-500/20 disabled:opacity-50"
+              type="submit"
+              disabled={loading}
+              className="w-full bg-gradient-to-r from-teal-600 to-emerald-600 hover:from-teal-700 hover:to-emerald-700 text-white font-semibold py-4 rounded-2xl transition-all shadow-lg shadow-teal-500/30 disabled:opacity-70 active:scale-[0.985]"
             >
-              {loading ? "Logging in..." : "Login"}
+              {loading ? "Signing in..." : "Sign In"}
             </button>
           </form>
 
-          <p className="text-sm text-slate-500 text-center mt-6">
+          <p className="text-center text-sm text-slate-500 mt-8">
             Don't have an account?{" "}
-            <Link to="/register" className="text-teal-600 font-medium hover:text-teal-700">
-              Register
+            <Link to="/register" className="text-teal-600 font-semibold hover:text-teal-700">
+              Create one
             </Link>
           </p>
         </div>

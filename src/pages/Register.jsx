@@ -30,67 +30,109 @@ export default function Register() {
     }
   };
 
-  const inputClass =
-    "w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-slate-800 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent transition";
-  const labelClass = "block text-sm font-medium text-slate-700 mb-1.5";
+  const inputClass = "w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-2xl text-slate-800 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-all";
+  const labelClass = "block text-sm font-semibold text-slate-700 mb-1.5";
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 via-teal-50/40 to-slate-50 px-4 py-10">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 via-teal-50 to-slate-50 px-4 py-12">
       <div className="w-full max-w-md">
-        <div className="text-center mb-6">
-          <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-teal-500 to-emerald-600 flex items-center justify-center text-2xl mx-auto mb-3 shadow-lg shadow-teal-500/20">
+        {/* Logo & Header */}
+        <div className="text-center mb-8">
+          <div className="w-16 h-16 rounded-3xl bg-gradient-to-br from-teal-500 via-emerald-500 to-cyan-500 flex items-center justify-center text-4xl mx-auto mb-4 shadow-xl shadow-teal-500/30">
             💊
           </div>
-          <h1 className="text-2xl font-semibold text-slate-800">Create your account</h1>
-          <p className="text-sm text-slate-500 mt-1">Join MediTrack and never miss a dose</p>
+          <h1 className="text-3xl font-bold text-slate-800">Create Account</h1>
+          <p className="text-slate-500 mt-2">Join MediTrack and take control of your health</p>
         </div>
 
-        <div className="bg-white rounded-2xl shadow-xl shadow-slate-200/50 border border-slate-100 p-8">
+        {/* Form Card */}
+        <div className="bg-white rounded-3xl shadow-xl shadow-slate-200/60 border border-slate-100 p-8">
           {error && (
-            <div className="bg-red-50 text-red-600 text-sm rounded-xl px-4 py-2.5 mb-5 border border-red-100">
+            <div className="bg-red-50 border border-red-200 text-red-600 rounded-2xl px-5 py-3 mb-6 text-sm">
               {error}
             </div>
           )}
 
-          <form onSubmit={handleSubmit} className="space-y-4">
+          <form onSubmit={handleSubmit} className="space-y-6">
             <div>
               <label className={labelClass}>Full Name</label>
-              <input type="text" name="name" value={form.name} onChange={handleChange} required
-                placeholder="Sagar Thapliyal" className={inputClass} />
+              <input
+                type="text"
+                name="name"
+                value={form.name}
+                onChange={handleChange}
+                required
+                placeholder="Sagar Thapliyal"
+                className={inputClass}
+              />
             </div>
+
             <div>
-              <label className={labelClass}>Email</label>
-              <input type="email" name="email" value={form.email} onChange={handleChange} required
-                placeholder="you@example.com" className={inputClass} />
+              <label className={labelClass}>Email Address</label>
+              <input
+                type="email"
+                name="email"
+                value={form.email}
+                onChange={handleChange}
+                required
+                placeholder="you@example.com"
+                className={inputClass}
+              />
             </div>
+
             <div>
-              <label className={labelClass}>Phone</label>
-              <input type="text" name="phone" value={form.phone} onChange={handleChange} required
-                placeholder="9720544184" className={inputClass} />
+              <label className={labelClass}>Phone Number</label>
+              <input
+                type="text"
+                name="phone"
+                value={form.phone}
+                onChange={handleChange}
+                required
+                placeholder="9720544184"
+                className={inputClass}
+              />
             </div>
+
             <div>
               <label className={labelClass}>Password</label>
-              <input type="password" name="password" value={form.password} onChange={handleChange} required
-                placeholder="••••••••" className={inputClass} />
+              <input
+                type="password"
+                name="password"
+                value={form.password}
+                onChange={handleChange}
+                required
+                placeholder="Create a strong password"
+                className={inputClass}
+              />
             </div>
+
             <div>
               <label className={labelClass}>I am a</label>
-              <select name="role" value={form.role} onChange={handleChange} className={`${inputClass} bg-slate-50`}>
+              <select
+                name="role"
+                value={form.role}
+                onChange={handleChange}
+                className={inputClass}
+              >
                 <option value="PATIENT">Patient</option>
                 <option value="FAMILY">Family Member</option>
               </select>
             </div>
+
             <button
-              type="submit" disabled={loading}
-              className="w-full bg-gradient-to-r from-teal-600 to-emerald-600 hover:from-teal-700 hover:to-emerald-700 text-white font-medium py-2.5 rounded-xl transition shadow-lg shadow-teal-500/20 disabled:opacity-50"
+              type="submit"
+              disabled={loading}
+              className="w-full bg-gradient-to-r from-teal-600 to-emerald-600 hover:from-teal-700 hover:to-emerald-700 text-white font-semibold py-4 rounded-2xl transition-all shadow-lg shadow-teal-500/30 disabled:opacity-70 active:scale-[0.985]"
             >
-              {loading ? "Creating account..." : "Create Account"}
+              {loading ? "Creating your account..." : "Create Account"}
             </button>
           </form>
 
-          <p className="text-sm text-slate-500 text-center mt-6">
+          <p className="text-center text-sm text-slate-500 mt-8">
             Already have an account?{" "}
-            <Link to="/login" className="text-teal-600 font-medium hover:text-teal-700">Login</Link>
+            <Link to="/login" className="text-teal-600 font-semibold hover:text-teal-700">
+              Login here
+            </Link>
           </p>
         </div>
       </div>
