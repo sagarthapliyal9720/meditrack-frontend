@@ -19,7 +19,7 @@ export default function Family() {
 
   const fetchMembers = async () => {
     try {
-      const res = await axios.get("http://127.0.0.1:8000/accounts/family/list/", {
+      const res = await axios.get("https://sagarthapliyal.pythonanywhere.com/accounts/family/list/", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setMembers(res.data);
@@ -44,7 +44,7 @@ export default function Family() {
     setError("");
     setSubmitting(true);
     try {
-      const res = await axios.post("http://127.0.0.1:8000/accounts/family/add/", form, {
+      const res = await axios.post("https://sagarthapliyal.pythonanywhere.com/accounts/family/add/", form, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setMembers((prev) => [...prev, res.data]);
@@ -66,7 +66,7 @@ export default function Family() {
   const handleRemove = async (id) => {
     if (!window.confirm("Remove this family member?")) return;
     try {
-      await axios.delete(`http://127.0.0.1:8000/accounts/family/${id}/remove/`, {
+      await axios.delete(`https://sagarthapliyal.pythonanywhere.com/accounts/family/${id}/remove/`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setMembers((prev) => prev.filter((m) => m.id !== id));

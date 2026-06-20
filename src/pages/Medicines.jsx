@@ -22,7 +22,7 @@ export default function Medicines() {
 
   const fetchMedicines = async () => {
     try {
-      const res = await axios.get("http://127.0.0.1:8000/medicines/list/", {
+      const res = await axios.get("https://sagarthapliyal.pythonanywhere.com/medicines/list/", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setMedicines(res.data);
@@ -67,7 +67,7 @@ export default function Medicines() {
     };
 
     try {
-      const res = await axios.post("http://127.0.0.1:8000/medicines/add/", payload, {
+      const res = await axios.post("https://sagarthapliyal.pythonanywhere.com/medicines/add/", payload, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setMedicines((prev) => [...prev, res.data.data]);

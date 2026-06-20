@@ -14,7 +14,7 @@ export default function Dashboard() {
 
   const fetchDoses = async () => {
     try {
-      const res = await axios.get("http://127.0.0.1:8000/medicines/doses/today/", {
+      const res = await axios.get("https://sagarthapliyal.pythonanywhere.com/medicines/doses/today/", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setDoses(res.data);
@@ -37,7 +37,7 @@ export default function Dashboard() {
   const markDose = async (id, status) => {
     try {
       await axios.patch(
-        `http://127.0.0.1:8000/medicines/doses/${id}/mark/`,
+        `https://sagarthapliyal.pythonanywhere.com/medicines/doses/${id}/mark/`,
         { status },
         { headers: { Authorization: `Bearer ${token}` } }
       );

@@ -15,7 +15,7 @@ export default function Register() {
     setError("");
     setLoading(true);
     try {
-      await axios.post("http://127.0.0.1:8000/accounts/register/", form);
+      await axios.post("https://sagarthapliyal.pythonanywhere.com/accounts/register/", form);
       navigate("/login");
     } catch (err) {
       const data = err.response?.data;
